@@ -1,7 +1,7 @@
 function Home() {
   return (
     <main>
-      {/* Hero Section */}
+      
       <section className="hero-section" id="home">
         <div className="hero-overlay"></div>
 
@@ -34,7 +34,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Features */}
+      
       <section className="features-section">
         <div className="feature-card">
           <div className="feature-icon">🎓</div>
@@ -73,7 +73,6 @@ function Home() {
         </div>
       </section>
 
-      {/* About */}
       <section className="about-section" id="about">
         <div className="about-content">
           <span className="section-label">ABOUT OUR UNIVERSITY</span>
@@ -118,7 +117,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Colleges */}
       <section className="colleges-section" id="colleges">
         <div className="section-heading">
           <span className="section-label">ACADEMIC EXCELLENCE</span>
@@ -174,7 +172,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Programs */}
       <section className="programs-section" id="programs">
         <div className="section-heading">
           <span className="section-label">FIND YOUR PATH</span>

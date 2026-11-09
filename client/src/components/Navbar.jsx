@@ -3,7 +3,6 @@ function Navbar() {
     <nav className="navbar">
       <div className="nav-container">
 
-        {/* University Logo */}
         <div className="university-logo">
           <div className="logo-icon">
             🎓
@@ -15,7 +14,6 @@ function Navbar() {
           </div>
         </div>
 
-        {/* Navigation */}
         <div className="nav-links">
           <a href="#home">الرئيسية</a>
           <a href="#about">عن الجامعة</a>
@@ -25,7 +23,6 @@ function Navbar() {
           <a href="#admissions">القبول</a>
         </div>
 
-        {/* Student Portal */}
         <button className="portal-button">
           👤 بوابة الطالب
         </button>

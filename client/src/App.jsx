@@ -3,9 +3,6 @@ import "./App.css";
 
 const API_URL = "http://localhost:5000/api";
 
-/* =========================================================
-   LOGIN STORAGE
-========================================================= */
 
 function saveLogin(data) {
   localStorage.setItem("portalToken", data.token);
@@ -30,9 +27,6 @@ function getSavedUser() {
   }
 }
 
-/* =========================================================
-   APP
-========================================================= */
 
 export default function App() {
   const [user, setUser] = useState(getSavedUser);
@@ -69,9 +63,6 @@ export default function App() {
     setEmployeeHistory([]);
   }
 
-  /* =========================
-     Student Navigation
-  ========================= */
 
   function goStudentPage(nextPage) {
     if (nextPage === studentPage) return;
@@ -97,10 +88,6 @@ export default function App() {
     setStudentPage(previous);
   }
 
-  /* =========================
-     Employee Navigation
-  ========================= */
-
   function goEmployeePage(nextPage) {
     if (nextPage === employeePage) return;
 
@@ -125,9 +112,6 @@ export default function App() {
     setEmployeePage(previous);
   }
 
-  /* =========================
-     Employee
-  ========================= */
 
   if (user?.role === "employee") {
     return (
@@ -141,9 +125,6 @@ export default function App() {
     );
   }
 
-  /* =========================
-     Student
-  ========================= */
 
   if (user?.role === "student") {
     return (
@@ -157,9 +138,6 @@ export default function App() {
     );
   }
 
-  /* =========================
-     Authentication
-  ========================= */
 
   if (authPage === "student") {
     return (
@@ -187,9 +165,6 @@ export default function App() {
   );
 }
 
-/* =========================================================
-   UNIVERSITY HOME
-========================================================= */
 
 function UniversityHome({
   onStudentLogin,
@@ -462,9 +437,6 @@ function PublicProgram({ icon, title }) {
   );
 }
 
-/* =========================================================
-   STUDENT LOGIN
-========================================================= */
 
 function StudentLogin({
   onLogin,
@@ -630,9 +602,6 @@ function StudentLogin({
   );
 }
 
-/* =========================================================
-   EMPLOYEE LOGIN
-========================================================= */
 
 function EmployeeLogin({
   onLogin,
@@ -901,9 +870,6 @@ function EmployeeLogin({
   );
 }
 
-/* =========================================================
-   STUDENT PORTAL
-========================================================= */
 
 function StudentPortal({
   student,
@@ -1171,9 +1137,6 @@ function SidebarButton({
   );
 }
 
-/* =========================================================
-   STUDENT HOME
-========================================================= */
 
 function StudentHome({ student }) {
   return (
@@ -1353,9 +1316,7 @@ function StatCard({
   );
 }
 
-/* =========================================================
-   COURSES
-========================================================= */
+
 
 function CoursesPage() {
   const courses = [
@@ -1408,9 +1369,7 @@ function CoursesPage() {
   );
 }
 
-/* =========================================================
-   GRADES
-========================================================= */
+
 
 function GradesPage() {
   const grades = [
@@ -1475,9 +1434,7 @@ function GradesPage() {
   );
 }
 
-/* =========================================================
-   REGISTRATION
-========================================================= */
+
 
 function RegistrationPage() {
   return (
@@ -1508,9 +1465,6 @@ function RegistrationPage() {
   );
 }
 
-/* =========================================================
-   PROFILE
-========================================================= */
 
 function ProfilePage({ student }) {
   return (
@@ -1561,9 +1515,6 @@ function ProfilePage({ student }) {
   );
 }
 
-/* =========================================================
-   ANNOUNCEMENTS
-========================================================= */
 
 function AnnouncementsPage() {
   return (
@@ -1630,9 +1581,7 @@ function AnnouncementsPage() {
   );
 }
 
-/* =========================================================
-   SETTINGS
-========================================================= */
+
 
 function SettingsPage() {
   return (
@@ -1713,9 +1662,6 @@ function PageHeader({
   );
 }
 
-/* =========================================================
-   EMPLOYEE PORTAL
-========================================================= */
 
 function EmployeePortal({
   employee,
@@ -1818,9 +1764,6 @@ function EmployeePortal({
   );
 }
 
-/* =========================================================
-   EMPLOYEE HOME
-========================================================= */
 
 function EmployeeHome({
   employee,
@@ -2018,9 +1961,6 @@ function EmployeeHome({
   );
 }
 
-/* =========================================================
-   CREATE STUDENT
-========================================================= */
 
 function CreateStudentPage() {
   const [form, setForm] = useState({
@@ -2061,7 +2001,7 @@ function CreateStudentPage() {
 
     if (form.password.length < 6) {
       setError(
-        "كلمة المرور يجب أن تكون 6 أحرف على الأقل"
+        "كلمة المرور يجب أن تكون من 6 أحرف على الأقل"
       );
       return;
     }
@@ -2183,7 +2123,7 @@ function CreateStudentPage() {
               name="password"
               value={form.password}
               onChange={updateField}
-              placeholder="6 أحرف على الأقل"
+              placeholder=" 6 احرف عالاقل"
             />
 
           </div>
@@ -2237,9 +2177,6 @@ function CreateStudentPage() {
   );
 }
 
-/* =========================================================
-   STUDENTS LIST
-========================================================= */
 
 function StudentsListPage() {
   const [students, setStudents] =
@@ -2272,7 +2209,7 @@ function StudentsListPage() {
         if (!response.ok) {
           throw new Error(
             data.message ||
-            "حدث خطأ أثناء جلب الطلاب"
+            "حدث خطأ "
           );
         }
 
@@ -2298,7 +2235,7 @@ function StudentsListPage() {
 
       {loading && (
         <div className="loading-box">
-          جاري تحميل الطلاب...
+          جاري تحميل الطلاب
         </div>
       )}
 
@@ -2376,9 +2313,6 @@ function StudentsListPage() {
   );
 }
 
-/* =========================================================
-   EMPLOYEE PROFILE
-========================================================= */
 
 function EmployeeProfile({
   employee,
