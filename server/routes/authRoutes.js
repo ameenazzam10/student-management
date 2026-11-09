@@ -6,9 +6,7 @@ const Student = require("../models/Student");
 
 const router = express.Router();
 
-/* =========================
-   إنشاء JWT Token
-========================= */
+
 
 function createToken(user) {
   return jwt.sign(
@@ -23,22 +21,17 @@ function createToken(user) {
   );
 }
 
-/* =========================
-   إنشاء حساب موظف
-========================= */
 
 router.post("/employee/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    // التحقق من البيانات
     if (!name || !email || !password) {
       return res.status(400).json({
         message: "جميع الحقول مطلوبة",
       });
     }
 
-    // التحقق من طول كلمة المرور
     if (password.length < 6) {
       return res.status(400).json({
         message:
@@ -48,7 +41,6 @@ router.post("/employee/register", async (req, res) => {
 
     const cleanEmail = email.trim().toLowerCase();
 
-    // البحث عن البريد
     const existingEmployee = await Employee.findOne({
       email: cleanEmail,
     });
@@ -60,7 +52,6 @@ router.post("/employee/register", async (req, res) => {
       });
     }
 
-    // إنشاء الموظف
     const employee = await Employee.create({
       name: name.trim(),
       email: cleanEmail,
@@ -68,7 +59,6 @@ router.post("/employee/register", async (req, res) => {
       role: "employee",
     });
 
-    // إنشاء التوكن
     const token = createToken(employee);
 
     return res.status(201).json({
@@ -87,7 +77,6 @@ router.post("/employee/register", async (req, res) => {
       error
     );
 
-    // MongoDB duplicate key
     if (error.code === 11000) {
       return res.status(400).json({
         message:
@@ -103,9 +92,6 @@ router.post("/employee/register", async (req, res) => {
   }
 });
 
-/* =========================
-   دخول الموظف
-========================= */
 
 router.post("/employee/login", async (req, res) => {
   try {
@@ -167,9 +153,6 @@ router.post("/employee/login", async (req, res) => {
   }
 });
 
-/* =========================
-   دخول الطالب
-========================= */
 
 router.post("/student/login", async (req, res) => {
   try {

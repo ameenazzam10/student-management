@@ -33,7 +33,6 @@ const employeeSchema = new mongoose.Schema(
   }
 );
 
-/* تشفير كلمة المرور */
 employeeSchema.pre("save", async function () {
   if (!this.isModified("password")) {
     return;
@@ -47,7 +46,6 @@ employeeSchema.pre("save", async function () {
   );
 });
 
-/* مقارنة كلمة المرور */
 employeeSchema.methods.comparePassword = function (
   password
 ) {

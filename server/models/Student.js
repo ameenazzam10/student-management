@@ -50,7 +50,6 @@ const studentSchema = new mongoose.Schema(
   }
 );
 
-/* تشفير كلمة المرور */
 studentSchema.pre("save", async function () {
   if (!this.isModified("password")) {
     return;
@@ -64,7 +63,6 @@ studentSchema.pre("save", async function () {
   );
 });
 
-/* مقارنة كلمة المرور */
 studentSchema.methods.comparePassword = function (
   password
 ) {

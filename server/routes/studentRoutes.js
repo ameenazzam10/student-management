@@ -9,9 +9,6 @@ const {
 
 const router = express.Router();
 
-/* =========================
-   الموظف ينشئ طالب
-========================= */
 
 router.post("/", protect, employeeOnly, async (req, res) => {
   try {
@@ -74,9 +71,6 @@ router.post("/", protect, employeeOnly, async (req, res) => {
   }
 });
 
-/* =========================
-   عرض الطلاب للموظف
-========================= */
 
 router.get("/", protect, employeeOnly, async (req, res) => {
   try {
@@ -94,9 +88,6 @@ router.get("/", protect, employeeOnly, async (req, res) => {
   }
 });
 
-/* =========================
-   بيانات الطالب الحالي
-========================= */
 
 router.get("/me", protect, studentOnly, async (req, res) => {
   try {
